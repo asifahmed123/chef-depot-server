@@ -13,7 +13,11 @@ app.get('/', (req, res) => {
 app.get('/dishes', (req, res) => {
      res.send(dishes)
 })
-
+app.get('/dishes/:id', (req, res) => {
+     const id = parseInt(req.params.id)
+     const selectedItem = dishes.find(d => d.id === id)
+     res.send(selectedItem)
+})
 
 app.listen(port, () => {
      console.log(`Example app listening on port ${port}`)
