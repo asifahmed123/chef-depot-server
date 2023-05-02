@@ -5,17 +5,17 @@ const port = process.env.PORT || 3000
 
 app.use(cors())
 
-const dishes = require('./data/dishes.json')
+const chefs = require('./data/chefs.json')
 
 app.get('/', (req, res) => {
      res.send('Hello World!')
 })
-app.get('/dishes', (req, res) => {
-     res.send(dishes)
+app.get('/chefs', (req, res) => {
+     res.send(chefs)
 })
-app.get('/dishes/:id', (req, res) => {
+app.get('/chefs/:id', (req, res) => {
      const id = parseInt(req.params.id)
-     const selectedItem = dishes.find(d => d.id === id)
+     const selectedItem = chefs.find(d => d.id === id)
      res.send(selectedItem)
 })
 
